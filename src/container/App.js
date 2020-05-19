@@ -2,9 +2,9 @@ import React, {useEffect} from "react";
 import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import { connect } from "react-redux";
-import Login from "../components/Login/Login";
-import LoginPage from "../components/Login/LoginPage";
-import Register from '../components/register/Register'
+import Login from "./Login/Login";
+import LoginPage from "./Login/LoginPage";
+import Register from './register/Register'
 const App = ({ history, getInitialState }) => {
   useEffect(() => {
     getInitialState();

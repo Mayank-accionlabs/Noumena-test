@@ -6,7 +6,7 @@ const login = (props) => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to={"#"}>
+        <Link className="navbar-brand" to={''}>
           Navbar
         </Link>
         <button
