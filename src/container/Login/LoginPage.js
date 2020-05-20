@@ -1,10 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { getUserData } from "../../actions";
 import { push } from "connected-react-router";
 import FormInput from "../../components/Input/Input";
 import "./LoginPage.css";
-const LoginPage = ({ goback, getUser, User }) => {
+const LoginPage = () => {
+  const user = useSelector(state => state.userDetails);
+  const dispatch = useDispatch();
+  const getUser = () => dispatch(getUserData());
+  const goBack = () => dispatch(push('/'));
+  console.log(user && user);
+
   return (
     <div className="container-fluid">
       <div className="row no-gutter">
@@ -16,6 +22,8 @@ const LoginPage = ({ goback, getUser, User }) => {
                 <div className="col-md-9 col-lg-8 mx-auto">
                   <h3 className="login-heading mb-4">Welcome back!</h3>
                   <form>
+                    <button className="btn btn-primary btn-lg" onClick={() => getUser()}>Get User</button>
+                    <button className="btn btn-primary btn-lg" onClick={() => goBack()}>GO Back</button>
                     <FormInput
                       name="Email"
                       type="email"
@@ -67,14 +75,4 @@ const LoginPage = ({ goback, getUser, User }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getUser: () => dispatch(getUserData()),
-    goback: () => dispatch(push("/")),
-  };
-};
-const mapStateToProps = (state) => ({
-  User: state.userDetails,
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+export default LoginPage;

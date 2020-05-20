@@ -1,4 +1,4 @@
-export const getUserData = () => async (dispatch) => {
+export const getUserData = () =>  (dispatch) => {
   return dispatch({
     type: "GET_ALL_Users"
   });

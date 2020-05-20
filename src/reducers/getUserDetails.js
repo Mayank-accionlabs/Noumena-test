@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
       console.log('hi', action.payload);
       return {
         ...state,
-        userDetails: {userDetails : action.payload},
+        userDetails: {userDetails : {'a': 'abc'}},
       };
     default:
       return state;
